@@ -29,6 +29,13 @@ namespace TihomirsBakery.Services
 			return mealFromDb ?? throw new Exception("Meal with the given ID was not found!");
 		}
 
+		public async Task<List<Meal>> GetByName(CancellationToken cancellationToken, string name)
+		{
+            var mealFromDb = await _unitOfWork.Meal.GetByName(cancellationToken, name);
+
+			return mealFromDb;
+		}
+
 		public async Task<Meal> Create(CancellationToken cancellationToken, MealCreateRequest meal)
 		{
             var newMeal = _mapper.Map<Meal>(meal);

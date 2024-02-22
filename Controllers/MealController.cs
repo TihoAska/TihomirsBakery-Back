@@ -44,6 +44,20 @@ namespace TihomirsBakery.Controllers
 			}
 		}
 
+		[HttpGet]
+		public async Task<ActionResult<List<Meal>>> GetByNameFromQuery(CancellationToken cancellationToken, [FromQuery]string name)
+		{
+			try
+			{
+				var result = await _mealService.GetByName(cancellationToken, name);
+				return Ok(result);
+			} 
+			catch (Exception ex)
+			{
+				return BadRequest(ex.Message);
+			}
+		}
+
 		[HttpPost]
 		public async Task<ActionResult<List<Meal>>> Create(CancellationToken cancellationToken, MealCreateRequest meal)
 		{

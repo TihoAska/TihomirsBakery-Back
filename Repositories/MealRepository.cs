@@ -16,9 +16,9 @@ namespace TihomirsBakery.Repositories
 			return await _query.Where(meal => meal.Id == id).FirstOrDefaultAsync(cancellationToken);
 		}
 
-        public async Task<Meal> GetByName(CancellationToken cancellationToken, string name)
+        public async Task<List<Meal>> GetByName(CancellationToken cancellationToken, string name)
         {
-            return await _query.Where(meal => meal.Name == name).FirstOrDefaultAsync(cancellationToken);
+            return await _query.Where(meal => meal.Name.ToLower().Contains(name.ToLower())).ToListAsync(cancellationToken);
         }
 	}
 }
