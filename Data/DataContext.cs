@@ -13,7 +13,7 @@ namespace TihomirsBakery.Data
 		protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 		{
 			base.OnConfiguring(optionsBuilder);
-			optionsBuilder.UseNpgsql("Server=localhost;Database=mydatabase;Port=5431;User Id=myuser;Password=mypassword;Pooling=true;Maximum Pool Size=3;Minimum Pool Size=1;");
+			optionsBuilder.UseNpgsql("Server=localhost;Database=mydatabase2;Port=5432;User Id=myuser2;Password=mypassword2;Pooling=true;Maximum Pool Size=3;Minimum Pool Size=1;");
 		}
 
 		public DbSet<Meal> Meals { get; set; }
