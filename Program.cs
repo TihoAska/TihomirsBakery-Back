@@ -1,7 +1,15 @@
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
 using System.Text.Json.Serialization;
 using TihomirsBakery.Data;
+using TihomirsBakery.JWTFeatures;
+using TihomirsBakery.Models.User;
+using TihomirsBakery.Repository;
+using TihomirsBakery.Repository.IRepository;
 using TihomirsBakery.Services;
-using TihomirsBakery.UnitOfWork;
+using TihomirsBakery.Services.IServices;
 
 var builder = WebApplication.CreateBuilder(args);
 
