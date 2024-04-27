@@ -1,5 +1,6 @@
 using AutoMapper;
-using TihomirsBakery.Models;
+using TihomirsBakery.Models.Meal;
+using TihomirsBakery.Models.User;
 
 namespace TihomirsBakery.Helpers
 {
@@ -23,6 +24,19 @@ namespace TihomirsBakery.Helpers
                 .ForMember(d => d.Proteins, opt => opt.MapFrom(s => s.Proteins))
                 .ForMember(d => d.Fats, opt => opt.MapFrom(s => s.Fats))
                 .ForMember(d => d.Carbs, opt => opt.MapFrom(s => s.Carbs));
+
+            CreateMap<UserCreateRequest, User>()
+                .ForMember(d => d.FirstName, opt => opt.MapFrom(s => s.FirstName))
+                .ForMember(d => d.LastName, opt => opt.MapFrom(s => s.LastName))
+                .ForMember(d => d.UserName, opt => opt.MapFrom(s => s.UserName))
+                .ForMember(d => d.Email, opt => opt.MapFrom(s => s.Email));
+
+            CreateMap<UserUpdateRequest, User>()
+                .ForMember(d => d.Id, opt => opt.MapFrom(s => s.Id))
+                .ForMember(d => d.FirstName, opt => opt.MapFrom(s => s.FirstName))
+                .ForMember(d => d.LastName, opt => opt.MapFrom(s => s.LastName))
+                .ForMember(d => d.UserName, opt => opt.MapFrom(s => s.UserName))
+                .ForMember(d => d.Email, opt => opt.MapFrom(s => s.Email));
         }
     }
 }
