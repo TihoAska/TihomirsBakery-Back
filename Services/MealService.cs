@@ -1,10 +1,11 @@
 using AutoMapper;
-using TihomirsBakery.Models;
-using TihomirsBakery.UnitOfWork;
+using TihomirsBakery.Models.Meal;
+using TihomirsBakery.Repository.IRepository;
+using TihomirsBakery.Services.IServices;
 
 namespace TihomirsBakery.Services
 {
-	public class MealService : IMealService
+    public class MealService : IMealService
 	{
 		private readonly IUnitOfWork _unitOfWork;
         private readonly IMapper _mapper;
@@ -17,21 +18,21 @@ namespace TihomirsBakery.Services
 
 		public async Task<IEnumerable<Meal>> GetAll(CancellationToken cancellationToken)
 		{
-            var mealsFromDb = await _unitOfWork.Meal.GetAll(cancellationToken);
+            var mealsFromDb = await _unitOfWork.Meals.GetAll(cancellationToken);
 
 			return mealsFromDb ?? throw new Exception("No meals were found!");
 		}
 
 		public async Task<Meal> GetById(CancellationToken cancellationToken, int id)
 		{
-            var mealFromDb = await _unitOfWork.Meal.GetById(cancellationToken, id);
+            var mealFromDb = await _unitOfWork.Meals.GetById(cancellationToken, id);
 
 			return mealFromDb ?? throw new Exception("Meal with the given ID was not found!");
 		}
 
 		public async Task<List<Meal>> GetByName(CancellationToken cancellationToken, string name)
 		{
-            var mealFromDb = await _unitOfWork.Meal.GetByName(cancellationToken, name);
+            var mealFromDb = await _unitOfWork.Meals.GetByName(cancellationToken, name);
 
 			return mealFromDb;
 		}
@@ -40,7 +41,7 @@ namespace TihomirsBakery.Services
 		{
             var newMeal = _mapper.Map<Meal>(meal);
 
-			_unitOfWork.Meal.Add(newMeal);
+			_unitOfWork.Meals.Add(newMeal);
             await _unitOfWork.SaveChangesAsync();
 
 			return newMeal;
@@ -48,9 +49,9 @@ namespace TihomirsBakery.Services
 
 		public async Task<bool> Delete(CancellationToken cancellationToken, int id)
 		{
-			var mealFromDb = await _unitOfWork.Meal.GetById(cancellationToken, id) ?? throw new Exception("Meal with the given ID was not found!");
+			var mealFromDb = await _unitOfWork.Meals.GetById(cancellationToken, id) ?? throw new Exception("Meal with the given ID was not found!");
             
-            _unitOfWork.Meal.Remove(mealFromDb);
+            _unitOfWork.Meals.Remove(mealFromDb);
             await _unitOfWork.SaveChangesAsync();
 
 			return true;
@@ -58,7 +59,7 @@ namespace TihomirsBakery.Services
 
 		public async Task<Meal> Update(CancellationToken cancellationToken, MealUpdateRequest request)
 		{
-			var mealFromDb = await _unitOfWork.Meal.GetById(cancellationToken, request.Id) ?? throw new Exception("Meal not found!");
+			var mealFromDb = await _unitOfWork.Meals.GetById(cancellationToken, request.Id) ?? throw new Exception("Meal not found!");
             
             mealFromDb.Name = request.Name;
 			mealFromDb.Type = request.Type;
