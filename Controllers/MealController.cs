@@ -1,11 +1,12 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using TihomirsBakery.Models;
+using TihomirsBakery.Models.Meal;
 using TihomirsBakery.Services;
+using TihomirsBakery.Services.IServices;
 
 namespace TihomirsBakery.Controllers
 {
-	[Route("api/[controller]/[action]")]
+    [Route("api/[controller]/[action]")]
 	[ApiController]
 	public class MealController : ControllerBase
 	{
