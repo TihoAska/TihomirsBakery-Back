@@ -17,6 +17,8 @@ namespace TihomirsBakery.Data
 
         public DbSet<Meal> Meals { get; set; }
         public DbSet<User> Users { get; set; }
+        public DbSet<DailyIntake> DailyIntakes { get; set; }
+        public DbSet<MealIntake> MealIntakes { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 		{
