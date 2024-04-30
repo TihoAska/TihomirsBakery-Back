@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using TihomirsBakery.Data;
@@ -11,9 +12,11 @@ using TihomirsBakery.Data;
 namespace TihomirsBakery.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20240429132031_NutritionTables")]
+    partial class NutritionTables
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -191,72 +194,6 @@ namespace TihomirsBakery.Migrations
                     b.ToTable("Meals");
                 });
 
-            modelBuilder.Entity("TihomirsBakery.Models.Nutritions.DailyIntake", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("integer");
-
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
-
-                    b.Property<DateTime>("DateCreated")
-                        .HasColumnType("timestamp with time zone");
-
-                    b.Property<double>("TotalCalories")
-                        .HasColumnType("double precision");
-
-                    b.Property<double>("TotalCarbs")
-                        .HasColumnType("double precision");
-
-                    b.Property<double>("TotalFats")
-                        .HasColumnType("double precision");
-
-                    b.Property<double>("TotalProtein")
-                        .HasColumnType("double precision");
-
-                    b.Property<int>("UserId")
-                        .HasColumnType("integer");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("UserId");
-
-                    b.ToTable("DailyIntakes");
-                });
-
-            modelBuilder.Entity("TihomirsBakery.Models.Nutritions.MealIntake", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("integer");
-
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
-
-                    b.Property<double>("Calories")
-                        .HasColumnType("double precision");
-
-                    b.Property<double>("Carbs")
-                        .HasColumnType("double precision");
-
-                    b.Property<int>("DailyIntakeId")
-                        .HasColumnType("integer");
-
-                    b.Property<double>("Fats")
-                        .HasColumnType("double precision");
-
-                    b.Property<int>("MealType")
-                        .HasColumnType("integer");
-
-                    b.Property<double>("Protein")
-                        .HasColumnType("double precision");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("DailyIntakeId");
-
-                    b.ToTable("MealIntakes");
-                });
-
             modelBuilder.Entity("TihomirsBakery.Models.Users.User", b =>
                 {
                     b.Property<int>("Id")
@@ -286,9 +223,6 @@ namespace TihomirsBakery.Migrations
                         .HasColumnType("boolean");
 
                     b.Property<string>("FirstName")
-                        .HasColumnType("text");
-
-                    b.Property<string>("ImageUrl")
                         .HasColumnType("text");
 
                     b.Property<bool>("IsActive")
@@ -400,28 +334,6 @@ namespace TihomirsBakery.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-                });
-
-            modelBuilder.Entity("TihomirsBakery.Models.Nutritions.DailyIntake", b =>
-                {
-                    b.HasOne("TihomirsBakery.Models.Users.User", "User")
-                        .WithMany()
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("User");
-                });
-
-            modelBuilder.Entity("TihomirsBakery.Models.Nutritions.MealIntake", b =>
-                {
-                    b.HasOne("TihomirsBakery.Models.Nutritions.DailyIntake", "DailyIntake")
-                        .WithMany()
-                        .HasForeignKey("DailyIntakeId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("DailyIntake");
                 });
 #pragma warning restore 612, 618
         }
