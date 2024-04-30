@@ -1,6 +1,6 @@
 using AutoMapper;
-using TihomirsBakery.Models.Meal;
-using TihomirsBakery.Models.User;
+using TihomirsBakery.Models.Meals;
+using TihomirsBakery.Models.Users;
 
 namespace TihomirsBakery.Helpers
 {
