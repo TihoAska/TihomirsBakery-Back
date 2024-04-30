@@ -2,8 +2,9 @@
 using Microsoft.EntityFrameworkCore;
 using TihomirsBakery.Models;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
-using TihomirsBakery.Models.Meal;
-using TihomirsBakery.Models.User;
+using TihomirsBakery.Models.Meals;
+using TihomirsBakery.Models.Users;
+using TihomirsBakery.Models.Nutritions;
 
 namespace TihomirsBakery.Data
 {
