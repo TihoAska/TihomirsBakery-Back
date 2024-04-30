@@ -11,6 +11,7 @@ namespace TihomirsBakery.Models.Users
         public DateTime? LastLogin { get; set; }
         public DateTime? DateCreated { get; set; }
         public DateTime? DateModified { get; set; }
+        public string? ImageUrl { get; set; }
         public bool IsDeleted { get; set; } = false;
         public bool IsActive { get; set; } = true;
 
