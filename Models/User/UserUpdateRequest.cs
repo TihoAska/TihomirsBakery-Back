@@ -20,5 +20,8 @@ namespace TihomirsBakery.Models.Users
         [Compare("Password", ErrorMessage = "Entered passwords don't match")]
         [NotMapped]
         public string? ConfirmPassword { get; set; }
+
+        [JsonIgnore]
+        public string? ImageUrl { get; set; }
     }
 }
