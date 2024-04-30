@@ -27,9 +27,10 @@ namespace TihomirsBakery.JWTFeatures
         {
             var claims = new List<Claim>
             {
-                new Claim(ClaimTypes.Name, user.UserName),
+                new Claim("UserName", user.UserName),
                 new Claim("Id", user.Id.ToString()),
-                new Claim(ClaimTypes.Email, user.Email),
+                new Claim("Email", user.Email),
+                new Claim("ImageUrl", user.ImageUrl)
             };
 
             return claims;
