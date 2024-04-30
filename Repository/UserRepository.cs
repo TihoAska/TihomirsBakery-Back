@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using TihomirsBakery.Data;
-using TihomirsBakery.Models.User;
+using TihomirsBakery.Models.Users;
 using TihomirsBakery.Repositories;
 using TihomirsBakery.Repository.IRepository;
 

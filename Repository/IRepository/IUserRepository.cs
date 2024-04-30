@@ -1,4 +1,4 @@
-﻿using TihomirsBakery.Models.User;
+﻿using TihomirsBakery.Models.Users;
 
 namespace TihomirsBakery.Repository.IRepository
 {

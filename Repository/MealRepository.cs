@@ -1,6 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using TihomirsBakery.Data;
-using TihomirsBakery.Models.Meal;
+using TihomirsBakery.Models.Meals;
 using TihomirsBakery.Repository.IRepository;
 
 namespace TihomirsBakery.Repositories

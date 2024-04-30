@@ -1,4 +1,4 @@
-using TihomirsBakery.Models.Meal;
+using TihomirsBakery.Models.Meals;
 
 namespace TihomirsBakery.Repository.IRepository
 {
