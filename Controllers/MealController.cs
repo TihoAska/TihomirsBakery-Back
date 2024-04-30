@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using TihomirsBakery.Models.Meal;
+using TihomirsBakery.Models.Meals;
 using TihomirsBakery.Services;
 using TihomirsBakery.Services.IServices;
 
