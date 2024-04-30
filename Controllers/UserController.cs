@@ -3,8 +3,8 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Infrastructure;
 using System.Threading;
-using TihomirsBakery.Models.Meal;
-using TihomirsBakery.Models.User;
+using TihomirsBakery.Models.Meals;
+using TihomirsBakery.Models.Users;
 using TihomirsBakery.Services.IServices;
 
 namespace TihomirsBakery.Controllers
