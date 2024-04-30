@@ -5,7 +5,7 @@ using System.Text;
 using System.Text.Json.Serialization;
 using TihomirsBakery.Data;
 using TihomirsBakery.JWTFeatures;
-using TihomirsBakery.Models.User;
+using TihomirsBakery.Models.Users;
 using TihomirsBakery.Repository;
 using TihomirsBakery.Repository.IRepository;
 using TihomirsBakery.Services;
