@@ -2,7 +2,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
 
-namespace TihomirsBakery.Models.User
+namespace TihomirsBakery.Models.Users
 {
     public class UserUpdateRequest
     {
