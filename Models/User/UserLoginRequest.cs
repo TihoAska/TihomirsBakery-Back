@@ -2,7 +2,7 @@ using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace TihomirsBakery.Models.User
+namespace TihomirsBakery.Models.Users
 {
     public class UserLoginRequest
     {
