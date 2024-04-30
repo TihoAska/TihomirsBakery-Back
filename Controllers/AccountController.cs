@@ -23,7 +23,7 @@ namespace TihomirsBakery.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult> Login(CancellationToken cancellationToken, UserLoginRequest userToLogin)
+        public async Task<ActionResult> Login(CancellationToken cancellationToken, [FromBody] UserLoginRequest userToLogin)
         {
             try
             {
@@ -79,7 +79,7 @@ namespace TihomirsBakery.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult> Register(CancellationToken cancellationToken, UserCreateRequest model)
+        public async Task<ActionResult> Register(CancellationToken cancellationToken, [FromBody] UserCreateRequest model)
         {
             try
             {
