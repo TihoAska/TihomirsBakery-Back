@@ -1,7 +1,8 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
-using TihomirsBakery.Models.Meal;
-using TihomirsBakery.Models.User;
+using TihomirsBakery.Models.Meals;
+using TihomirsBakery.Models.Nutritions;
+using TihomirsBakery.Models.Users;
 
 namespace TihomirsBakery.Data
 {
