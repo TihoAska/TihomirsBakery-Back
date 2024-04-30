@@ -1,5 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
-using TihomirsBakery.Models.Meal;
+using TihomirsBakery.Models.Meals;
 
 namespace TihomirsBakery.Services
 {

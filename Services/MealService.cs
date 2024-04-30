@@ -1,5 +1,5 @@
 using AutoMapper;
-using TihomirsBakery.Models.Meal;
+using TihomirsBakery.Models.Meals;
 using TihomirsBakery.Repository.IRepository;
 using TihomirsBakery.Services.IServices;
 

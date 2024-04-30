@@ -5,7 +5,7 @@ using Microsoft.OpenApi.Validations;
 using System.Runtime.CompilerServices;
 using System.Threading;
 using TihomirsBakery.JWTFeatures;
-using TihomirsBakery.Models.User;
+using TihomirsBakery.Models.Users;
 using TihomirsBakery.Repository.IRepository;
 using TihomirsBakery.Services.IServices;
 

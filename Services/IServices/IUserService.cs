@@ -1,5 +1,5 @@
 ﻿using Microsoft.AspNetCore.Identity;
-using TihomirsBakery.Models.User;
+using TihomirsBakery.Models.Users;
 
 namespace TihomirsBakery.Services.IServices
 {
