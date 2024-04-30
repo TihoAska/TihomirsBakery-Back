@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using System.ComponentModel.DataAnnotations;
 
-namespace TihomirsBakery.Models.User
+namespace TihomirsBakery.Models.Users
 {
     public class User : IdentityUser<int>
     {
