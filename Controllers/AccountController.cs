@@ -1,8 +1,8 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using TihomirsBakery.Models.Account;
-using TihomirsBakery.Models.User;
+using TihomirsBakery.Models.Accounts;
+using TihomirsBakery.Models.Users;
 using TihomirsBakery.Services.IServices;
 
 namespace TihomirsBakery.Controllers
