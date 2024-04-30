@@ -1,6 +1,6 @@
 ﻿using System.Runtime.CompilerServices;
 using System.Security.Claims;
-using TihomirsBakery.Models.User;
+using TihomirsBakery.Models.Users;
 using TihomirsBakery.Repository.IRepository;
 using System.IdentityModel.Tokens.Jwt;
 using Microsoft.IdentityModel.Tokens;
