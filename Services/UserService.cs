@@ -76,6 +76,7 @@ namespace TihomirsBakery.Services
             userFromDb.Email = userToUpdate.Email;
             userFromDb.NormalizedEmail = userToUpdate.Email.ToUpper();
             userFromDb.DateModified = DateTime.Now.ToUniversalTime();
+            userFromDb.ImageUrl = userToUpdate.ImageUrl;
 
             await _unitOfWork.SaveChangesAsync();
 
