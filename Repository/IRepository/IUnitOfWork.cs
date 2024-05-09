@@ -4,6 +4,9 @@ namespace TihomirsBakery.Repository.IRepository
     {
         IMealRepository Meals { get; }
         IUserRepository Users { get; }
+        IMealIntakeRepository MealIntakes { get; }
+        IDailyIntakeRepository DailyIntakes { get; }
+        IAddedMealRepository AddedMeals { get; }
         Task<int> SaveChangesAsync();
     }
 }
