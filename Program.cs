@@ -30,6 +30,8 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<IMealService, MealService>();
 builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<IAccountService, AccountService>();
+builder.Services.AddScoped<IDailyIntakeService, DailyIntakeService>();
+builder.Services.AddScoped<IMealIntakeService, MealIntakeService>();
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 builder.Services.AddScoped<JWTHandler>();
 builder.Services.AddDbContext<IDataContext, DataContext>();
