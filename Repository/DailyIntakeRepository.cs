@@ -14,19 +14,39 @@ namespace TihomirsBakery.Repository
             
         }
 
-        public Task<IEnumerable<DailyIntake>> GetByDateCreated(CancellationToken cancellationToken, DateTime dateCreated)
+        public Task<DailyIntake> GetByDateCreated(CancellationToken cancellationToken, DateTime dateCreated)
         {
-            throw new NotImplementedException();
+            var now = DateTime.Now.ToUniversalTime();
+            var dayStart = now.Date;
+            var dayEnd = dayStart.AddDays(1);
+
+            return _query.Where(di => di.DateCreated >= dayStart && di.DateCreated < dayEnd)
+                .Include(di => di.User)
+                .Include(di => di.MealIntakes)
+                .ThenInclude(mi => mi.AddedMeals)
+                .FirstOrDefaultAsync(cancellationToken);
         }
 
         public Task<DailyIntake> GetById(CancellationToken cancellationToken, int id)
         {
-            return _query.Where(di => di.Id == id).FirstOrDefaultAsync(cancellationToken);
+            return _query.Where(di => di.Id == id)
+                .Include(di => di.User)
+                .Include(di => di.MealIntakes)
+                .ThenInclude(mi => mi.AddedMeals)
+                .FirstOrDefaultAsync(cancellationToken);
         }
 
-        public Task<IEnumerable<DailyIntake>> GetByUserId(CancellationToken cancellationToken, int userId)
+        public Task<DailyIntake> GetByUserIdForToday(CancellationToken cancellationToken, int userId)
         {
-            throw new NotImplementedException();
+            var now = DateTime.Now.ToUniversalTime();
+            var dayStart = now.Date;
+            var dayEnd = dayStart.AddDays(1);
+
+            return _query.Where(di => di.UserId == userId && di.DateCreated >= dayStart && di.DateCreated < dayEnd)
+                .Include(di => di.User)
+                .Include(di => di.MealIntakes)
+                .ThenInclude(mi => mi.AddedMeals)
+                .FirstOrDefaultAsync(cancellationToken);
         }
     }
 }
