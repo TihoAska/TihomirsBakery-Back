@@ -5,7 +5,7 @@ namespace TihomirsBakery.Repository.IRepository
     public interface IDailyIntakeRepository : IGenericRepository<DailyIntake>
     {
         Task<DailyIntake> GetById(CancellationToken cancellationToken, int id);
-        Task<IEnumerable<DailyIntake>> GetByUserId(CancellationToken cancellationToken, int userId);
-        Task<IEnumerable<DailyIntake>> GetByDateCreated(CancellationToken cancellationToken, DateTime dateCreated);
+        Task<DailyIntake> GetByUserIdForToday(CancellationToken cancellationToken, int userId);
+        Task<DailyIntake> GetByDateCreated(CancellationToken cancellationToken, DateTime dateCreated);
     }
 }
