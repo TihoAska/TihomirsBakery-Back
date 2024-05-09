@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using TihomirsBakery.Models.Meals;
 using TihomirsBakery.Models.Users;
 using TihomirsBakery.Models.Nutritions;
+using TihomirsBakery.Models.Nutritions.AddedMeals;
 
 namespace TihomirsBakery.Data
 {
@@ -19,6 +20,7 @@ namespace TihomirsBakery.Data
         public DbSet<User> Users { get; set; }
         public DbSet<DailyIntake> DailyIntakes { get; set; }
         public DbSet<MealIntake> MealIntakes { get; set; }
+        public DbSet<AddedMeal> AddedMeals { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 		{
