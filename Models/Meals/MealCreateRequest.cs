@@ -11,7 +11,7 @@ namespace TihomirsBakery.Models.Meals
         [Required]
 		public string Type { get; set; } = string.Empty;
         [Required]
-		public double Proteins { get; set; }
+		public double Protein { get; set; }
         [Required]
 		public double Fats { get; set; }
         [Required]
