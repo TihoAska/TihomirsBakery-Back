@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using TihomirsBakery.Data;
@@ -11,9 +12,11 @@ using TihomirsBakery.Data;
 namespace TihomirsBakery.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20240505210343_AddedMeals")]
+    partial class AddedMeals
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -441,7 +444,7 @@ namespace TihomirsBakery.Migrations
             modelBuilder.Entity("TihomirsBakery.Models.Nutritions.AddedMeals.AddedMeal", b =>
                 {
                     b.HasOne("TihomirsBakery.Models.Nutritions.MealIntake", "MealIntake")
-                        .WithMany("AddedMeals")
+                        .WithMany()
                         .HasForeignKey("MealIntakeId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -474,11 +477,6 @@ namespace TihomirsBakery.Migrations
             modelBuilder.Entity("TihomirsBakery.Models.Nutritions.DailyIntake", b =>
                 {
                     b.Navigation("MealIntakes");
-                });
-
-            modelBuilder.Entity("TihomirsBakery.Models.Nutritions.MealIntake", b =>
-                {
-                    b.Navigation("AddedMeals");
                 });
 #pragma warning restore 612, 618
         }
