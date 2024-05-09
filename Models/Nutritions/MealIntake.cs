@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
+using TihomirsBakery.Models.Nutritions.AddedMeals;
 
 namespace TihomirsBakery.Models.Nutritions
 {
@@ -14,5 +15,6 @@ namespace TihomirsBakery.Models.Nutritions
         public double Protein { get; set; }
         public double Carbs { get; set; }
         public double Fats { get; set; }
+        public List<AddedMeal> AddedMeals { get; set; }
     }
 }
