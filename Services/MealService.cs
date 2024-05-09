@@ -64,7 +64,7 @@ namespace TihomirsBakery.Services
             mealFromDb.Name = request.Name;
 			mealFromDb.Type = request.Type;
 			mealFromDb.Description = request.Description;
-			mealFromDb.Proteins = request.Proteins;
+			mealFromDb.Protein = request.Protein;
 			mealFromDb.Carbs = request.Carbs;
 			mealFromDb.Fats = request.Fats;
 
