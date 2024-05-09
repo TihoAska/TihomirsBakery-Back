@@ -15,5 +15,6 @@ namespace TihomirsBakery.Models.Nutritions
         public double TotalProtein { get; set; }
         public double TotalCarbs { get; set; }
         public double TotalFats { get; set; }
+        public List<MealIntake> MealIntakes { get; set; }
     }
 }
