@@ -84,11 +84,16 @@ namespace TihomirsBakery.Services
 
         public async Task<AuthResponse> Login(CancellationToken cancellationToken, UserLoginRequest userToLogin)
         {
-            var user = await _unitOfWork.Users.GetByEmailAsync(cancellationToken, userToLogin.Email) ?? throw new Exception("User with the given EMAIL was not found!");
+            var user = await _unitOfWork.Users.GetByEmailAsync(cancellationToken, userToLogin.Email);
+
+            if(user == null)
+            {
+                return new AuthResponse { IsAuthSuccessful = false, ErrorMessage = "Entered email is not registered for this application!", Type = "Email" };
+            }
 
             if(!await _userManager.CheckPasswordAsync(user, userToLogin.Password))
             {
-                throw new Exception("Invalid password!");
+                return new AuthResponse { IsAuthSuccessful = false, ErrorMessage = "Incorrect password!", Type = "Password" };
             }
 
             var token = _jwtHandler.GenerateJWTToken(user);
@@ -130,12 +135,12 @@ namespace TihomirsBakery.Services
 
             if (existingEmail != null)
             {
-                throw new Exception("Entered EMAIL is taken!");
+                return new AuthResponse { IsAuthSuccessful = false, ErrorMessage = "User with entered email already exists.", Type = "Email"};
             }
 
             if (existingUsername != null)
             {
-                throw new Exception("Entered USER NAME is taken!");
+                return new AuthResponse { IsAuthSuccessful = false, ErrorMessage = "User with entered user name already exists.", Type = "UserName" };
             }
 
             var result = await _userManager.CreateAsync(newUser, userForRegistration.Password);
