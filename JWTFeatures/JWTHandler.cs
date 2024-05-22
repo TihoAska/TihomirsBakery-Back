@@ -30,7 +30,9 @@ namespace TihomirsBakery.JWTFeatures
                 new Claim("UserName", user.UserName),
                 new Claim("Id", user.Id.ToString()),
                 new Claim("Email", user.Email),
-                new Claim("ImageUrl", user.ImageUrl)
+                new Claim("ImageUrl", user.ImageUrl),
+                new Claim("FirstName", user.FirstName),
+                new Claim("LastName", user.LastName),
             };
 
             return claims;
