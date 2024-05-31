@@ -3,6 +3,7 @@ using TihomirsBakery.Models.Meals;
 using TihomirsBakery.Models.Nutritions;
 using TihomirsBakery.Models.Nutritions.AddedMeals;
 using TihomirsBakery.Models.Users;
+using TihomirsBakery.Models.Workout;
 
 namespace TihomirsBakery.Helpers
 {
@@ -43,6 +44,10 @@ namespace TihomirsBakery.Helpers
                 })));
 
             CreateMap<AddedMealCreateRequest, AddedMeal>();
+
+            CreateMap<WorkoutCreateRequest, Workout>();
+
+            CreateMap<WorkoutUpdateRequest, Workout>();
         }
     }
 }
