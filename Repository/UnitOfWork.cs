@@ -13,6 +13,7 @@ namespace TihomirsBakery.Repository
         public IDailyIntakeRepository DailyIntakes { get; private set; }
         public IMealIntakeRepository MealIntakes { get; private set; }
         public IAddedMealRepository AddedMeals { get; private set; }
+        public IWorkoutRepository Workouts { get; private set; }
 
         public UnitOfWork(IDataContext dataContext)
         {
@@ -22,6 +23,7 @@ namespace TihomirsBakery.Repository
             DailyIntakes = new DailyIntakeRepository(_context);
             MealIntakes = new MealIntakeRepository(_context);
             AddedMeals = new AddedMealRepository(_context);
+            Workouts = new WorkoutRepository(_context);
         }
 
         public async Task<int> SaveChangesAsync()
