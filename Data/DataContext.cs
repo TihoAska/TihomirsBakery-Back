@@ -25,8 +25,8 @@ namespace TihomirsBakery.Data
         public DbSet<Workout> Workouts { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-		{
+	  {
             base.OnConfiguring(optionsBuilder);
-		}
+	  }
 	}
 }
