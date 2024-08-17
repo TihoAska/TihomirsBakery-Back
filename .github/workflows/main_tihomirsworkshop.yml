@@ -6,10 +6,6 @@ on:
       - main
   workflow_dispatch:
 
-permissions:
-  id-token: write
-  contents: read
-
 jobs:
   build:
     runs-on: windows-latest
@@ -48,14 +44,15 @@ jobs:
         with:
           name: .net-app
 
-      - name: Log in to Azure using OIDC
+      - name: Log in to Azure using Service Principal
         uses: azure/login@v2
         with:
           client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_ED0A5B44BF45484D95C3100D2095BB37 }}
           tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_75E59950F4A34274AC176B9EAA410BB8 }}
           subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_895955CFC640492585BF12EDA2ACCDEC }}
+          client-secret: ${{ secrets.AZUREAPPSERVICE_CLIENTSECRET_ED0A5B44BF45484D95C3100D2095BB37 }}
           environment: azurecloud
-          auth-type: oidc
+          auth-type: SERVICE_PRINCIPAL
 
       - name: Deploy to Azure Web App
         id: deploy-to-webapp
