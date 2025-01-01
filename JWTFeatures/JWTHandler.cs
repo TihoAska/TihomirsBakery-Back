@@ -12,15 +12,12 @@ namespace TihomirsBakery.JWTFeatures
     {
         private readonly IConfiguration _configuration;
         private readonly IConfigurationSection _jwtSettings;
-        private readonly IUnitOfWork _unitOfWork;
 
         public JWTHandler(
-            IConfiguration configuration,
-            IUnitOfWork unitOfWork)
+            IConfiguration configuration)
         {
             _configuration = configuration;
             _jwtSettings = _configuration.GetSection("JWT");
-            _unitOfWork = unitOfWork;
         }
 
         public List<Claim> GetClaims(User user)
@@ -52,7 +49,7 @@ namespace TihomirsBakery.JWTFeatures
                 issuer: _jwtSettings["ValidIssuer"],
                 audience: _jwtSettings["ValidAudience"],
                 claims: claims,
-                expires: DateTime.Now.AddMinutes(!refresh ? Convert.ToDouble(_jwtSettings["ExpiryInMinutes"]) : 525600),
+                expires: DateTime.Now.AddMinutes(!refresh ? Convert.ToDouble(_jwtSettings["ExpiryInMinutes"]) : 14400),
                 signingCredentials: signingCredentials);
 
             return tokenOptions;
@@ -71,10 +68,39 @@ namespace TihomirsBakery.JWTFeatures
         public string GenerateJWTRefreshToken()
         {
             var signingCredentials = GetSigningCredentials();
-            var refreshTokenOptions = GenerateTokenOptions(signingCredentials, new List<Claim>());
+            var refreshTokenOptions = GenerateTokenOptions(signingCredentials, new List<Claim>(), true);
             var refreshToken = new JwtSecurityTokenHandler().WriteToken(refreshTokenOptions);
 
             return refreshToken;
+        }
+
+        public bool ValidateRefreshToken(string refreshToken)
+        {
+            if (string.IsNullOrEmpty(refreshToken))
+                return false;
+
+            try
+            {
+                var tokenHandler = new JwtSecurityTokenHandler();
+                var key = Encoding.UTF8.GetBytes(_jwtSettings["Secret"]);
+
+                tokenHandler.ValidateToken(refreshToken, new TokenValidationParameters
+                {
+                    ValidateIssuer = true,
+                    ValidateAudience = true,
+                    ValidateLifetime = true,
+                    ValidateIssuerSigningKey = true,
+                    ValidIssuer = _jwtSettings["ValidIssuer"],
+                    ValidAudience = _jwtSettings["ValidAudience"],
+                    IssuerSigningKey = new SymmetricSecurityKey(key)
+                }, out SecurityToken validatedToken);
+
+                return validatedToken is JwtSecurityToken;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
         }
     }
 }

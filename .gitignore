@@ -236,3 +236,4 @@ _Pvt_Extensions
 # Ignore appsettings.json and appsettings.Development.json
 appsettings.json
 appsettings.Development.json
+appsettings.Production.json

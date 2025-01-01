@@ -98,7 +98,7 @@ namespace TihomirsBakery.Services
 
             var token = _jwtHandler.GenerateJWTToken(user);
 
-            if (string.IsNullOrEmpty(user.RefreshToken))
+            if (!_jwtHandler.ValidateRefreshToken(user.RefreshToken))
             {
                 user.RefreshToken = _jwtHandler.GenerateJWTRefreshToken();
             }
