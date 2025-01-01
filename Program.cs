@@ -43,7 +43,7 @@ builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowFrontend", builder =>
     {
-        builder.WithOrigins("https://tihoaska.github.io/TihomirsWorkshop-Front", "http://localhost:4200")
+        builder.WithOrigins("https://tihoaska.github.io", "http://localhost:4200")
                .AllowAnyMethod()
                .AllowAnyHeader();
     });
