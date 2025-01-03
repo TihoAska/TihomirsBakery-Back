@@ -4,6 +4,6 @@
     <ActiveDebugProfile>https</ActiveDebugProfile>
     <Controller_SelectedScaffolderID>ApiControllerEmptyScaffolder</Controller_SelectedScaffolderID>
     <Controller_SelectedScaffolderCategoryPath>root/Common/Api</Controller_SelectedScaffolderCategoryPath>
-    <NameOfLastUsedPublishProfile>C:\Users\Tihomir\Documents\Code\TihomirsWorkshop\TihomirsWorkshop-Back\.github\workflows\tihomirsworkshop1.yml</NameOfLastUsedPublishProfile>
+    <NameOfLastUsedPublishProfile>C:\Users\Tihomir\Documents\Code\TihomirsWorkshop\TihomirsWorkshop-Back\Properties\PublishProfiles\TihomirsBakery20250103133439 - Web Deploy.pubxml</NameOfLastUsedPublishProfile>
   </PropertyGroup>
 </Project>
